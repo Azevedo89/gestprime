@@ -165,7 +165,7 @@ export const content = {
       title: 'Esperamos pela sua mensagem.',
       subtitle: 'Fale connosco. Respondemos com a maior brevidade.',
       addressLabel: 'Morada',
-      address: ['Rua Marquês da Fronteira, nº 131 B', '1070-015 Lisboa, Portugal'],
+      address: ['Rua Marquês de Fronteira, nº 131 B', '1070-298 Lisboa, Portugal'],
       phoneLabel: 'Telefone',
       emailLabel: 'E-mail',
       form: {
@@ -206,7 +206,7 @@ export const content = {
       privacy: [
         {
           h: '1. Responsável pelo tratamento',
-          p: 'A presente Política de Privacidade aplica-se ao site da GestPrime, com morada na Rua Marquês da Fronteira, nº 131 B, 1070-015 Lisboa. Para qualquer questão relacionada com os seus dados pessoais, pode contactar-nos através do e-mail geral@gestprime.online.',
+          p: 'A presente Política de Privacidade aplica-se ao site da GestPrime, com morada na Rua Marquês de Fronteira, nº 131 B, 1070-298 Lisboa. Para qualquer questão relacionada com os seus dados pessoais, pode contactar-nos através do e-mail geral@gestprime.online.',
         },
         {
           h: '2. Dados que recolhemos',
@@ -439,7 +439,7 @@ export const content = {
       title: 'We look forward to hearing from you.',
       subtitle: 'Get in touch. We reply as soon as possible.',
       addressLabel: 'Address',
-      address: ['Rua Marquês da Fronteira, nº 131 B', '1070-015 Lisbon, Portugal'],
+      address: ['Rua Marquês de Fronteira, nº 131 B', '1070-298 Lisbon, Portugal'],
       phoneLabel: 'Phone',
       emailLabel: 'Email',
       form: {
@@ -480,7 +480,7 @@ export const content = {
       privacy: [
         {
           h: '1. Data controller',
-          p: 'This Privacy Policy applies to the GestPrime website, with address at Rua Marquês da Fronteira, nº 131 B, 1070-015 Lisbon, Portugal. For any question regarding your personal data, you can contact us at geral@gestprime.online.',
+          p: 'This Privacy Policy applies to the GestPrime website, with address at Rua Marquês de Fronteira, nº 131 B, 1070-298 Lisbon, Portugal. For any question regarding your personal data, you can contact us at geral@gestprime.online.',
         },
         {
           h: '2. Data we collect',
@@ -555,5 +555,5 @@ export const CONTACT = {
   phonePrimaryE164: '+351963933777',
   email: 'geral@gestprime.online',
   instagram: 'https://www.instagram.com/gest_prime',
-  mapsQuery: 'Rua Marquês da Fronteira 131 B, 1070-015 Lisboa',
+  mapsQuery: 'Rua Marquês de Fronteira, 1070-298 Lisboa, Portugal',
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLang } from '../i18n.jsx'
+import { CONTACT } from '../data/content.js'
+import Icon from './Icons.jsx'
 
 const links = [
   ['about', 'sobre'],
@@ -43,12 +45,15 @@ export default function Navbar() {
   }, [])
 
   // Lock body scroll + close on Escape while the mobile menu is open.
+  // The `menu-open` class lets us hide the floating buttons behind the overlay.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    document.body.classList.toggle('menu-open', open)
     const onKey = (e) => e.key === 'Escape' && setOpen(false)
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
+      document.body.classList.remove('menu-open')
       window.removeEventListener('keydown', onKey)
     }
   }, [open])
@@ -74,20 +79,35 @@ export default function Navbar() {
         </a>
 
         <nav className={`nav__links ${open ? 'is-open' : ''}`}>
-          {links.map(([key, id]) => (
+          {links.map(([key, id], i) => (
             <a
               key={key}
               href={`#${id}`}
               className={active === id ? 'is-active' : ''}
               aria-current={active === id ? 'true' : undefined}
+              style={{ '--i': i }}
               onClick={close}
             >
               {t.nav[key]}
             </a>
           ))}
-          <a href="#contacto" className="btn btn--gold nav__cta" onClick={close}>
+          <a href="#contacto" className="btn btn--gold nav__cta" style={{ '--i': links.length }} onClick={close}>
             {t.nav.cta}
           </a>
+
+          <div className="nav__drawer-foot" style={{ '--i': links.length + 1 }}>
+            <a href={`tel:${CONTACT.phones[0].replace(/\s/g, '')}`}>{CONTACT.phones[0]}</a>
+            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            <a
+              href={CONTACT.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="nav__drawer-ig"
+              aria-label="Instagram"
+            >
+              <Icon name="instagram" width={20} height={20} />
+            </a>
+          </div>
         </nav>
 
         <div className="nav__actions">

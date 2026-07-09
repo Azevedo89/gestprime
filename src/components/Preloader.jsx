@@ -14,9 +14,8 @@ export default function Preloader() {
       window.setTimeout(() => setRemoved(true), 700)
     }
 
-    // Hide once the page has loaded, with a short minimum display time so it
-    // doesn't flash on fast connections.
-    const minDelay = window.setTimeout(start, 1100)
+    // Minimum display time before the loader fades out (same on all devices).
+    const minDelay = window.setTimeout(start, 2500)
 
     return () => window.clearTimeout(minDelay)
   }, [])

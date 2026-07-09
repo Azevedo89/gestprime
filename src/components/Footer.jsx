@@ -41,8 +41,8 @@ export default function Footer({ onLegal }) {
         <div className="footer__col">
           <h4>{f.contactTitle}</h4>
           <ul>
-            <li>Rua Marquês da Fronteira, nº 131 B</li>
-            <li>1070-015 Lisboa</li>
+            <li>Rua Marquês de Fronteira, nº 131 B</li>
+            <li>1070-298 Lisboa</li>
             {CONTACT.phones.map((p) => (
               <li key={p}>
                 <a href={`tel:${p.replace(/\s/g, '')}`}>{p}</a>

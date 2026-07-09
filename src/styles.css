@@ -307,6 +307,10 @@ img {
 .nav__cta {
   padding: 10px 22px;
 }
+/* Menu contact block: only shown inside the mobile off-canvas menu. */
+.nav__drawer-foot {
+  display: none;
+}
 .nav__actions {
   display: flex;
   align-items: center;
@@ -369,6 +373,20 @@ img {
 }
 .burger.is-open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+/* Remove the default (blue) focus box on click; keep a clean gold ring for keyboard users. */
+.burger:focus,
+.lang:focus,
+.nav__brand:focus {
+  outline: none;
+}
+.burger:focus-visible,
+.lang:focus-visible,
+.nav__brand:focus-visible,
+.nav__links a:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 /* ---------- Hero ---------- */
@@ -987,6 +1005,23 @@ img {
   gap: 40px;
   padding: clamp(56px, 8vw, 88px) 24px clamp(40px, 5vw, 56px);
 }
+/* Tablet: brand on its own row, nav + contact side by side. */
+@media (max-width: 900px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 32px;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+/* Phone: stack everything in a single column. */
+@media (max-width: 560px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 .footer__logo {
   height: 64px;
   width: auto;
@@ -1157,38 +1192,130 @@ img {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
+  /* While the menu is open, the top bar sits over the navy drawer/backdrop, so
+     force the light appearance (regardless of scroll) — otherwise the navy "X",
+     PT/EN toggle and logo become invisible against the navy panel. */
+  .nav--open {
+    background: transparent;
+    box-shadow: none;
+  }
+  .nav--open .burger span {
+    background: #fff;
+  }
+  .nav--open .lang {
+    color: #fff;
+  }
+  .nav--open .lang span.is-active {
+    color: var(--gold-bright);
+  }
+  .nav--open .nav__logo--light {
+    opacity: 1;
+  }
+  .nav--open .nav__logo--dark {
+    opacity: 0;
+  }
+  /* Keep the whole top bar (logo, PT/EN, X) above the off-canvas panel, otherwise
+     the panel overlaps and hides parts of it (e.g. the active "PT"). */
+  .nav__links {
+    z-index: 1;
+  }
+  .nav__brand,
+  .nav__actions {
+    position: relative;
+    z-index: 2;
+  }
   .burger {
     display: flex;
   }
+  /* Full-screen overlay menu */
   .nav__links {
     position: fixed;
-    inset: 0 0 0 auto;
-    width: min(82vw, 360px);
+    inset: 0;
+    width: 100%;
+    z-index: 1;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 26px;
-    background: var(--navy);
-    padding: 48px;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    background: radial-gradient(135% 100% at 100% 0%, var(--navy-soft), var(--navy) 55%, var(--navy-deep));
+    padding: 94px 30px 32px;
     transform: translateX(100%);
-    transition: transform 0.35s var(--ease);
-    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.3);
+    transition: transform 0.42s var(--ease);
+    overflow-y: auto;
+    box-shadow: none;
   }
   .nav__links.is-open {
     transform: translateX(0);
   }
+  /* Staggered entrance of the menu items */
+  .nav__links > a,
+  .nav__drawer-foot {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+  }
+  .nav--open .nav__links > a,
+  .nav--open .nav__drawer-foot {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--i, 0) * 0.05s + 0.12s);
+  }
+  /* Links as a clean list with hairline dividers */
   .nav__links > a:not(.nav__cta),
   .nav:not(.nav--solid) .nav__links > a:not(.nav__cta) {
     color: #fff;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-family: var(--font-head);
+    padding: 19px 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
+  .nav__links > a:not(.nav__cta):first-of-type {
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
   }
   .nav__links > a:not(.nav__cta).is-active {
     color: var(--gold-bright);
   }
+  /* Use the divider list instead of the desktop underline animation */
+  .nav__links > a:not(.nav__cta)::after {
+    display: none;
+  }
   .nav__cta {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 28px;
+    padding: 15px 24px;
+  }
+  /* Contact block pinned to the bottom of the menu */
+  .nav__drawer-foot {
+    display: flex;
+    margin-top: auto;
+    padding-top: 26px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav__drawer-foot a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s var(--ease);
+  }
+  .nav__drawer-foot a:hover {
+    color: var(--gold-bright);
+  }
+  .nav__drawer-foot .nav__drawer-ig {
+    margin-left: auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  .nav__drawer-foot .nav__drawer-ig:hover {
+    background: var(--gold-deep);
+    color: #fff;
   }
 }
 
@@ -1429,6 +1556,12 @@ img {
   flex-direction: column;
   gap: 12px;
   align-items: center;
+  transition: opacity 0.25s var(--ease);
+}
+/* Hide the floating buttons while the full-screen menu is open. */
+body.menu-open .floats {
+  opacity: 0;
+  pointer-events: none;
 }
 .float {
   width: 56px;

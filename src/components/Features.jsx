@@ -7,7 +7,7 @@ export default function Features() {
     <section className="section section--alt">
       <div className="container features">
         {t.features.map((f, i) => (
-          <div className={`feature ${i % 2 ? 'feature--reverse' : ''} reveal`} key={f.eyebrow}>
+          <div className={`feature ${i % 2 ? 'feature--reverse' : ''} reveal`} key={i}>
             <div className="feature__text">
               <span className="eyebrow">{f.eyebrow}</span>
               <h2 className="section__title">{f.title}</h2>

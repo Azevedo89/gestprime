@@ -1193,7 +1193,7 @@ img {
     backdrop-filter: none;
   }
   /* While the menu is open, the top bar sits over the navy drawer/backdrop, so
-     force the light appearance (regardless of scroll) — otherwise the navy "X",
+     force the light appearance (regardless of scroll), otherwise the navy "X",
      PT/EN toggle and logo become invisible against the navy panel. */
   .nav--open {
     background: transparent;

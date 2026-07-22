@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
+import { useLang } from './i18n.jsx'
 import Preloader from './components/Preloader.jsx'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
@@ -17,6 +18,7 @@ import LegalModal from './components/LegalModal.jsx'
 
 export default function App() {
   const [legal, setLegal] = useState(null) // 'privacy' | 'terms' | null
+  const { lang } = useLang()
 
   // Always start at the top (hero) on load/reload, on mobile and desktop. We take
   // over from the browser's scroll restoration so a reload never lands mid-page.
@@ -26,8 +28,10 @@ export default function App() {
   }, [])
 
   // Reveal-on-scroll. Scroll-position based (not IntersectionObserver) so that
-  // sections the user skips past — via anchor links, fast scrolling or the browser
-  // restoring the scroll position on reload — are still revealed and never left blank.
+  // sections the user skips past (anchor links, fast scrolling, or the browser
+  // restoring the scroll position on reload) are still revealed and never left blank.
+  // Re-runs on `lang` change: switching language remounts some elements, which would
+  // otherwise lose their revealed state and disappear until scrolled again.
   useEffect(() => {
     let pending = Array.from(document.querySelectorAll('.reveal'))
     if (!pending.length) return
@@ -69,7 +73,7 @@ export default function App() {
       window.removeEventListener('resize', onScroll)
       window.removeEventListener('load', reveal)
     }
-  }, [])
+  }, [lang])
 
   return (
     <>

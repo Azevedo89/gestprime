@@ -15,7 +15,7 @@ export default function Services() {
 
         <div className="grid grid--3">
           {s.items.map((item, i) => (
-            <article className="card reveal" style={{ '--d': `${i * 60}ms` }} key={item.title}>
+            <article className="card reveal" style={{ '--d': `${i * 60}ms` }} key={item.icon}>
               <div className="card__icon">
                 <Icon name={item.icon} />
               </div>

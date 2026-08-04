@@ -1,113 +1,134 @@
 # GestPrime | Website
 
-Website institucional da **GestPrime** (gestão imobiliária e Alojamento Local, Lisboa).
-Construído com **React + Vite**, bilingue (PT/EN), de página única, publicado via **GitHub Pages**
-com domínio próprio `gestprime.online`.
+Marketing website for **GestPrime** (property and short-term rental management, Lisbon).
+Built with **React + Vite**, bilingual (PT/EN), single page, deployed via **GitHub Pages**
+with the custom domain `gestprime.online`.
 
-## Desenvolvimento
+## Development
 
 ```bash
-npm install      # instalar dependências
-npm run dev      # servidor de desenvolvimento (http://localhost:5173)
-npm run build    # gerar versão de produção em /dist
-npm run preview  # pré-visualizar a build de produção
+npm install      # install dependencies
+npm run dev      # dev server (http://localhost:5173)
+npm run build    # production build in /dist
+npm run preview  # preview the production build
 ```
 
-Requer Node 18+ (o deploy usa Node 20).
+Requires Node 18+ (the deploy uses Node 20).
 
-## Estrutura
+## Structure
 
 ```
-public/               logótipos, favicon, imagens, CNAME
-  logo.png              logótipo original (também usado no Open Graph)
-  logo-transparent.png  logótipo p/ fundos claros (navbar branca)
-  logo-light.png        logótipo p/ fundos escuros (navbar sobre o hero, footer, menu)
-  hero.jpg              imagem do hero
-  feature-1.jpg         imagem da secção "Marketing & Posicionamento"
-  feature-2.jpg         imagem da secção "Gestão Financeira & Relatórios"
-  CNAME                 domínio do GitHub Pages (gestprime.online)
+public/               logos, favicon, images, CNAME
+  logo.png              original logo (also used for Open Graph)
+  logo-transparent.png  logo for light backgrounds (solid navbar)
+  logo-light.png        logo for dark backgrounds (navbar over hero, footer, menu)
+  hero.jpg              hero image
+  feature-1.jpg         "Marketing & Positioning" section image
+  feature-2.jpg         "Financial Management & Reporting" section image
+  CNAME                 GitHub Pages custom domain (gestprime.online)
 src/
-  data/content.js     TODO o texto do site (PT + EN), dados de contacto e textos legais
-  i18n.jsx            contexto de idioma PT/EN (deteta o idioma do browser, guarda a escolha)
-  App.jsx             composição das secções, reveal on scroll, volta ao topo no reload
-  styles.css          tema visual (navy + dourado) e responsividade
+  data/content.js     ALL site copy (PT + EN), contact details and legal text
+  i18n.jsx            PT/EN language context (detects the browser language, stores the choice)
+  App.jsx             section composition, reveal on scroll, scroll to top on reload
+  styles.css          visual theme (navy + gold) and responsiveness
   components/
-    Preloader.jsx       ecrã de carregamento inicial
-    Navbar.jsx          navbar fixa, scroll spy, seletor de idioma, menu hamburger (mobile)
-    Hero.jsx            secção principal (texto + imagem com etiquetas)
-    Platforms.jsx       faixa de plataformas (Airbnb, Booking.com, Idealista)
-    About.jsx           Sobre Nós
-    Services.jsx        cartões de serviços
-    Process.jsx         "Como Trabalhamos" (4 passos)
-    Features.jsx        destaques com fotografias
-    Faq.jsx             perguntas frequentes (acordeão)
-    CTA.jsx             faixa de chamada para ação
-    Contact.jsx         contactos + formulário + mapa
-    Footer.jsx          rodapé + links legais
-    CookieBanner.jsx    banner de cookies
-    LegalModal.jsx      Política de Privacidade e Termos de Serviço (modal)
-    FloatingButtons.jsx botões flutuantes de WhatsApp e "voltar ao topo"
-    Icons.jsx           ícones SVG inline
+    Preloader.jsx       initial loading screen
+    Navbar.jsx          fixed navbar, scroll spy, language switch, hamburger menu (mobile)
+    Hero.jsx            main section (text + image with badges)
+    Platforms.jsx       platforms strip (Airbnb, Booking.com, Idealista)
+    About.jsx           About Us
+    Services.jsx        service cards
+    Process.jsx         "How We Work" (4 steps)
+    Features.jsx        highlights with photos
+    Faq.jsx             frequently asked questions (accordion)
+    CTA.jsx             call-to-action band
+    Contact.jsx         contact details + form + map
+    Footer.jsx          footer + legal links
+    CookieBanner.jsx    cookie banner
+    LegalModal.jsx      Privacy Policy and Terms of Service (modal)
+    FloatingButtons.jsx floating WhatsApp and "back to top" buttons
+    Icons.jsx           inline SVG icons
+index.html            page shell, meta/SEO tags and the Google tag (gtag.js)
 ```
 
-## Funcionalidades
+## Features
 
-- **Bilingue PT/EN** com seletor no topo (deteta o idioma do browser e guarda a preferência).
-- **Pré-loader** inicial (duração configurável em [`src/components/Preloader.jsx`](src/components/Preloader.jsx)).
-- **Navbar** fixa com indicador da secção ativa (scroll spy) e **menu hamburger de ecrã inteiro** em mobile/tablet.
-- **Animações de entrada** ao fazer scroll (com proteção: se o JavaScript falhar, o conteúdo aparece na mesma).
-- Ao **recarregar**, a página volta sempre ao topo (hero), em mobile e desktop.
-- **Formulário** que envia diretamente por email (ver secção abaixo).
-- **Política de Privacidade** e **Termos de Serviço** em modal (abertos pelo rodapé), bilingues.
-- **Banner de cookies**, **botão de WhatsApp** e **voltar ao topo**.
-- Totalmente **responsivo** (telemóveis, tablets/iPads, portáteis e monitores grandes).
+- **Bilingual PT/EN** with a switch in the navbar (detects the browser language and stores the preference).
+- **Preloader** on load (duration configurable in [`src/components/Preloader.jsx`](src/components/Preloader.jsx)).
+- **Fixed navbar** with an active-section indicator (scroll spy) and a **full-screen hamburger menu** on mobile/tablet.
+- **Reveal-on-scroll** animations (with a safeguard: if JavaScript fails, the content still shows).
+- On **reload**, the page always returns to the top (hero), on mobile and desktop.
+- **Contact form** that sends email directly (see the section below).
+- **Privacy Policy** and **Terms of Service** in a modal (opened from the footer), bilingual.
+- **Cookie banner**, **WhatsApp button** and **back-to-top** button.
+- Fully **responsive** (phones, tablets/iPads, laptops and large monitors).
+- **Google tag (gtag.js)** installed for Google Ads / Analytics, with a conversion fired on a successful form submission.
 
-## Editar conteúdos
+## Editing content
 
-- **Textos, serviços, FAQ, contactos e textos legais**: [`src/data/content.js`](src/data/content.js).
-  Há um bloco `pt` e um bloco `en`. Os dados partilhados (telefones, email, Instagram, morada do mapa)
-  estão no objeto `CONTACT` no fim do ficheiro.
-- **Imagens**: substituir os ficheiros em `public/` (`hero.jpg`, `feature-1.jpg`, `feature-2.jpg`),
-  mantendo os mesmos nomes.
-- **Logótipos**: `public/logo-light.png` (fundos escuros) e `public/logo-transparent.png` (fundos claros).
-- **Cores e tipografia**: variáveis `--navy`, `--gold`, etc. no topo de [`src/styles.css`](src/styles.css).
-- **Duração do pré-loader**: valor em milissegundos em [`src/components/Preloader.jsx`](src/components/Preloader.jsx).
+- **Copy, services, FAQ, contact details and legal text**: [`src/data/content.js`](src/data/content.js).
+  There is a `pt` block and an `en` block. Shared data (phone numbers, email, Instagram, map address)
+  lives in the `CONTACT` object at the end of the file.
+- **Images**: replace the files in `public/` (`hero.jpg`, `feature-1.jpg`, `feature-2.jpg`),
+  keeping the same file names.
+- **Logos**: `public/logo-light.png` (dark backgrounds) and `public/logo-transparent.png` (light backgrounds).
+- **Colors and typography**: `--navy`, `--gold`, etc. variables at the top of [`src/styles.css`](src/styles.css).
+- **Preloader duration**: value in milliseconds in [`src/components/Preloader.jsx`](src/components/Preloader.jsx).
 
-## Formulário de contacto (FormSubmit)
+## Contact form (FormSubmit)
 
-O formulário valida os campos obrigatórios (**nome**, **e-mail válido**, **mensagem**), tem um
-campo *honeypot* (`_honey`) anti-spam, e **envia diretamente** (sem backend) através do
-[FormSubmit](https://formsubmit.co) via `POST` no endpoint AJAX `https://formsubmit.co/ajax/<email>`,
-onde `<email>` é o `CONTACT.email` de [`src/data/content.js`](src/data/content.js).
-A página mostra a confirmação de sucesso sem recarregar.
+The form validates the required fields (**name**, **valid email**, **message**), has a
+`_honey` spam *honeypot*, and **sends directly** (no backend) through
+[FormSubmit](https://formsubmit.co) via a `POST` to the AJAX endpoint
+`https://formsubmit.co/ajax/<email>`, where `<email>` is `CONTACT.email` in
+[`src/data/content.js`](src/data/content.js). The page shows a success message without reloading.
 
-### Ativação (uma única vez)
-O FormSubmit exige uma confirmação inicial:
+### Activation (one time, per domain)
+FormSubmit requires an initial confirmation:
 
-1. Na **primeira** submissão, é enviado um email com o link **"Activate Form"** para o email de destino
-   (`geral@gestprime.online`). Verificar também a pasta de spam.
-2. Clicar em **"Activate Form"** nesse email.
-3. A partir daí, todas as mensagens chegam diretamente a essa caixa.
+1. On the **first** submission from a given domain, an email with an **"Activate Form"** link is sent to the
+   destination address (`geral@gestprime.online`). Check the spam folder too.
+2. Click **"Activate Form"** in that email.
+3. From then on, every message arrives directly in that inbox.
 
-> Para trocar o email de destino, alterar `email` no objeto `CONTACT`
-> ([`src/data/content.js`](src/data/content.js)). A próxima submissão volta a pedir ativação
-> para o novo endereço.
+> FormSubmit tracks activation **per referring domain**, so the live domain
+> (`gestprime.online`) needs its own one-time activation, separate from `localhost`.
+> To change the destination address, edit `email` in the `CONTACT` object
+> ([`src/data/content.js`](src/data/content.js)); the next submission asks for activation again.
 
-## Publicar no GitHub Pages
+## Google Ads / Analytics
 
-1. Fazer push deste projeto para o branch **`main`** (o workflow corre em `main`).
-2. No GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) faz build e deploy
-   automaticamente em cada push para `main`.
+The base **Google tag** (`gtag.js`, ID `AW-18280831262`) is in the `<head>` of
+[`index.html`](index.html), so it loads on every page.
 
-### Domínio próprio (gestprime.online)
-- O ficheiro [`public/CNAME`](public/CNAME) já contém `gestprime.online`, e o `base` em
-  [`vite.config.js`](vite.config.js) está `'/'` (correto para domínio na raiz). Não é preciso mexer.
-- No fornecedor de DNS, apontar o domínio para o GitHub Pages:
-  - 4 registos `A` no apex: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-  - (opcional, IPv6) registos `AAAA`: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-  - (opcional, `www`) um `CNAME` de `www` para `<utilizador>.github.io`
-- Em **Settings → Pages → Custom domain**, confirmar `gestprime.online` e ativar **Enforce HTTPS**.
+Because the form submits via AJAX (`preventDefault`), Google's automatic form detection
+cannot count it. The conversion is therefore fired **manually** on a successful submission,
+in [`src/components/Contact.jsx`](src/components/Contact.jsx):
 
-> Se algum dia for publicado numa subpasta (`utilizador.github.io/GestPrime`) em vez de domínio próprio,
-> mudar `base` em [`vite.config.js`](vite.config.js) para `'/GestPrime/'` e remover o CNAME.
+```js
+window.gtag('event', 'conversion', { send_to: CONTACT.adsConversionSendTo })
+```
+
+To enable it, set `adsConversionSendTo` in the `CONTACT` object
+([`src/data/content.js`](src/data/content.js)) to `'AW-18280831262/<LABEL>'`, where `<LABEL>`
+is the conversion label from Google Ads (switch the conversion action to "manual tag
+installation" to obtain it). While empty, no conversion is fired.
+
+## Deploying to GitHub Pages
+
+1. Push this project to the **`main`** branch (the workflow runs on `main`).
+2. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. The [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) workflow builds and
+   deploys automatically on every push to `main`.
+
+### Custom domain (gestprime.online)
+- [`public/CNAME`](public/CNAME) already contains `gestprime.online`, and `base` in
+  [`vite.config.js`](vite.config.js) is `'/'` (correct for a root domain). No change needed.
+- At your DNS provider, point the domain to GitHub Pages:
+  - 4 apex `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+  - (optional, IPv6) `AAAA` records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+  - (optional, `www`) a `CNAME` record for `www` pointing to `<username>.github.io`
+- Under **Settings → Pages → Custom domain**, confirm `gestprime.online` and enable **Enforce HTTPS**.
+
+> If it is ever published under a subpath (`username.github.io/GestPrime`) instead of a custom domain,
+> change `base` in [`vite.config.js`](vite.config.js) to `'/GestPrime/'` and remove the CNAME.

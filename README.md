@@ -43,7 +43,7 @@ src/
     Faq.jsx             perguntas frequentes (acordeão)
     CTA.jsx             faixa de chamada para ação
     Contact.jsx         contactos + formulário + mapa
-    Footer.jsx          rodapé + links legais + crédito Primesystems
+    Footer.jsx          rodapé + links legais
     CookieBanner.jsx    banner de cookies
     LegalModal.jsx      Política de Privacidade e Termos de Serviço (modal)
     FloatingButtons.jsx botões flutuantes de WhatsApp e "voltar ao topo"
@@ -111,7 +111,3 @@ O FormSubmit exige uma confirmação inicial:
 
 > Se algum dia for publicado numa subpasta (`utilizador.github.io/GestPrime`) em vez de domínio próprio,
 > mudar `base` em [`vite.config.js`](vite.config.js) para `'/GestPrime/'` e remover o CNAME.
-
----
-
-Website desenvolvido por [Primesystems](https://primesystems.pt).

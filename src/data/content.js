@@ -191,7 +191,6 @@ export const content = {
       rights: 'Todos os direitos reservados',
       privacy: 'Política de Privacidade',
       terms: 'Termos de Serviço',
-      developedBy: 'Website desenvolvido por',
     },
     cookies: {
       text: 'Utilizamos cookies para garantir o funcionamento adequado e a segurança do site e para lhe oferecer a melhor experiência possível.',
@@ -465,7 +464,6 @@ export const content = {
       rights: 'All rights reserved',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
-      developedBy: 'Website developed by',
     },
     cookies: {
       text: 'We use cookies to ensure the proper functioning and security of the website and to offer you the best possible experience.',

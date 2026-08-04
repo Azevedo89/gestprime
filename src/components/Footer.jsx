@@ -65,21 +65,6 @@ export default function Footer({ onLegal }) {
           </div>
         </div>
       </div>
-
-      <div className="footer__credit">
-        <div className="container">
-          <div className="footer__credit-line">
-            <span />
-          </div>
-          <p className="footer__credit-text">
-            <span>{f.developedBy}</span>
-            <span className="footer__credit-dot">•</span>
-            <a href="https://primesystems.pt" target="_blank" rel="noreferrer">
-              PRIMESYSTEMS
-            </a>
-          </p>
-        </div>
-      </div>
     </footer>
   )
 }

@@ -53,7 +53,11 @@ export default function Contact() {
         // Report the Google Ads conversion. The form submits via AJAX (preventDefault),
         // so Google's automatic form detection can't count it; we fire it manually here.
         if (CONTACT.adsConversionSendTo && typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', { send_to: CONTACT.adsConversionSendTo })
+          window.gtag('event', 'conversion', {
+            send_to: CONTACT.adsConversionSendTo,
+            value: 1.0,
+            currency: 'EUR',
+          })
         }
         setStatus('success')
         form.reset()

@@ -555,8 +555,7 @@ export const CONTACT = {
   instagram: 'https://www.instagram.com/gest_prime',
   mapsQuery: 'Rua Marquês de Fronteira, 1070-298 Lisboa, Portugal',
   // Google Ads conversion for a successful form submission.
-  // Set to 'AW-18280831262/<LABEL>' once the conversion action is switched to
-  // "manual tag installation" in Google Ads and it provides a conversion label.
-  // Leave empty to disable (no conversion is fired).
-  adsConversionSendTo: '',
+  // Fired manually on AJAX success (Contact.jsx) because the form does not do a
+  // native submit. Action: "Formulário - GestPrime (manual)". Leave empty to disable.
+  adsConversionSendTo: 'AW-18280831262/YoNCCO2XktwcEJ6y_YxE',
 }

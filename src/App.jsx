@@ -20,11 +20,22 @@ export default function App() {
   const [legal, setLegal] = useState(null) // 'privacy' | 'terms' | null
   const { lang } = useLang()
 
-  // Always start at the top (hero) on load/reload, on mobile and desktop. We take
-  // over from the browser's scroll restoration so a reload never lands mid-page.
+  // Control the initial scroll position. We take over from the browser's scroll
+  // restoration (which is unreliable in an SPA, since sections aren't in the DOM
+  // yet when it runs). If the URL has a section anchor (e.g. /#contacto), jump to
+  // that section; otherwise start at the top (hero). Runs in a layout effect, after
+  // React has committed all sections, so getElementById finds the target.
   useLayoutEffect(() => {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    const id = decodeURIComponent(window.location.hash.replace('#', ''))
+    const target = id && document.getElementById(id)
+    if (target) {
+      const NAV_OFFSET = 84 // keep the section top clear of the fixed navbar
+      const y = target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET
+      window.scrollTo({ top: Math.max(0, y), left: 0, behavior: 'instant' })
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    }
   }, [])
 
   // Reveal-on-scroll. Scroll-position based (not IntersectionObserver) so that

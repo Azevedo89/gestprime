@@ -50,6 +50,11 @@ export default function Contact() {
       })
       const json = await res.json().catch(() => ({}))
       if (res.ok && String(json.success) === 'true') {
+        // Report the Google Ads conversion. The form submits via AJAX (preventDefault),
+        // so Google's automatic form detection can't count it; we fire it manually here.
+        if (CONTACT.adsConversionSendTo && typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', { send_to: CONTACT.adsConversionSendTo })
+        }
         setStatus('success')
         form.reset()
       } else {

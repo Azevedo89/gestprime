@@ -24,6 +24,9 @@ export default function Footer({ onLegal }) {
             <a href={CONTACT.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
               <Icon name="instagram" width={20} height={20} />
             </a>
+            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <Icon name="linkedin" width={20} height={20} />
+            </a>
           </div>
         </div>
 

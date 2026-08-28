@@ -553,6 +553,7 @@ export const CONTACT = {
   phonePrimaryE164: '+351963933777',
   email: 'geral@gestprime.online',
   instagram: 'https://www.instagram.com/gest_prime',
+  linkedin: 'https://www.linkedin.com/company/gestprime-property-al-management/',
   mapsQuery: 'Rua Marquês de Fronteira, 1070-298 Lisboa, Portugal',
   // Google Ads conversion for a successful form submission.
   // Fired manually on AJAX success (Contact.jsx) because the form does not do a

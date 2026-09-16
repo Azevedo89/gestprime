@@ -109,6 +109,11 @@ export const icons = {
       <circle cx="4" cy="4" r="2" />
     </svg>
   ),
+  facebook: (p) => (
+    <svg {...base} {...p}>
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  ),
   whatsapp: (p) => (
     <svg {...base} {...p}>
       <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.2A8.5 8.5 0 1 1 21 11.5Z" />

@@ -554,6 +554,7 @@ export const CONTACT = {
   email: 'geral@gestprime.online',
   instagram: 'https://www.instagram.com/gest_prime',
   linkedin: 'https://www.linkedin.com/company/gestprime-property-al-management/',
+  facebook: 'https://www.facebook.com/profile.php?id=61587243323104',
   mapsQuery: 'Rua Marquês de Fronteira, 1070-298 Lisboa, Portugal',
   // Google Ads conversion for a successful form submission.
   // Fired manually on AJAX success (Contact.jsx) because the form does not do a

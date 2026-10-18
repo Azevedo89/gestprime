@@ -93,12 +93,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Videos />
         <Platforms />
         <About />
         <Services />
         <Process />
         <Features />
-        <Videos />
         <Faq />
         <CTA />
         <Contact />

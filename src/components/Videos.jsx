@@ -11,7 +11,7 @@ export default function Videos() {
           <h2 className="section__title">{v.title}</h2>
         </div>
         <div className="videos reveal">
-          {[1, 2].map((n) => (
+          {[2].map((n) => (
             <video
               key={n}
               className="videos__item"

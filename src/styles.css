@@ -1753,3 +1753,28 @@ body.menu-open .floats {
   }
 }
 
+
+/* ---------- Videos section ---------- */
+.videos-section {
+  background: radial-gradient(120% 120% at 50% 0%, var(--navy-soft) 0%, var(--navy) 45%, var(--navy-deep) 100%);
+}
+.videos-section .section__title {
+  color: #fff;
+}
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+.videos__item {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}

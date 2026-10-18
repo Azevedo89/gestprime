@@ -8,6 +8,7 @@ import About from './components/About.jsx'
 import Services from './components/Services.jsx'
 import Process from './components/Process.jsx'
 import Features from './components/Features.jsx'
+import Videos from './components/Videos.jsx'
 import Faq from './components/Faq.jsx'
 import CTA from './components/CTA.jsx'
 import Contact from './components/Contact.jsx'
@@ -97,6 +98,7 @@ export default function App() {
         <Services />
         <Process />
         <Features />
+        <Videos />
         <Faq />
         <CTA />
         <Contact />

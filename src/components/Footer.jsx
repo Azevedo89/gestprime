@@ -47,7 +47,7 @@ export default function Footer({ onLegal }) {
         <div className="footer__col">
           <h4>{f.contactTitle}</h4>
           <ul>
-            <li>Rua Marquês de Fronteira, nº 131 B</li>
+            <li>Rua Marquês de Fronteira, nº 131 B</li>
             <li>1070-298 Lisboa</li>
             {CONTACT.phones.map((p) => (
               <li key={p}>

@@ -63,7 +63,7 @@ export default function Footer({ onLegal }) {
 
       <div className="footer__bar">
         <div className="container footer__bar-inner">
-          <span>© {year} GestPrime · {f.rights}</span>
+          <span>© {year} GestPrime · {f.rights} <a href="https://vectogest.pt" target="_blank" rel="noopener noreferrer">VectoGest</a></span>
           <div className="footer__legal">
             <button type="button" onClick={() => onLegal('privacy')}>{f.privacy}</button>
             <span className="footer__legal-sep">·</span>

@@ -1073,11 +1073,6 @@ img {
   padding: 22px 0;
   font-size: 0.88rem;
 }
-.footer__bar .container {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
 
 /* ---------- Cookie banner ---------- */
 .cookies {
@@ -1622,6 +1617,15 @@ body.menu-open .floats {
   gap: 12px 20px;
   flex-wrap: wrap;
   text-align: left;
+}
+.footer__bar-inner a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+.footer__bar-inner a:hover {
+  color: #fff;
 }
 .footer__legal {
   display: flex;

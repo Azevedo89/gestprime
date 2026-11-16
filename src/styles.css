@@ -1626,6 +1626,7 @@ body.menu-open .floats {
   transition: color 0.2s var(--ease);
 }
 .footer__vg-logo {
+  display: inline-block;
   height: 1.1em;
   width: auto;
   vertical-align: -0.2em;

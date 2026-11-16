@@ -1620,9 +1620,16 @@ body.menu-open .floats {
 }
 .footer__bar-inner a {
   color: var(--gold-bright);
+  font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
   transition: color 0.2s var(--ease);
+}
+.footer__vg-logo {
+  height: 1.1em;
+  width: auto;
+  vertical-align: -0.2em;
+  margin: 0 4px 0 2px;
 }
 .footer__bar-inner a:hover {
   color: #fff;
